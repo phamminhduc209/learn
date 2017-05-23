@@ -1,0 +1,29 @@
+body {
+	width: 780px;
+	margin: 0 auto;
+	padding: 10px 0;
+}
+.com {
+	background-color: #caeff9;
+	border: 1px solid #0099FF;
+	padding: 5px;
+	margin-bottom: 5px;
+	width: 100%; 
+}
+.com p {
+	margin: 5px 0;
+}
+table {
+	width: 100%;
+}
+.w10px {
+	width: 10px;
+}
+.no-wrap {
+	white-space: nowrap;
+}
+i {
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
+}

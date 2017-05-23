@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery Ajax - Link</title>
+	<script src="../../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+	<a href="#" id="1" class="ajax">Link 1</a> -
+	<a href="#" id="2" class="ajax">Link 2</a> -
+	<a href="#" id="3" class="ajax">Link 3</a> -
+	<a href="#" id="4" class="ajax">Link 4</a>
+	<div id="ketqua"></div>
+
+	<script>
+		$(document).ready(function() {
+			$("a.ajax").click(function() {
+				id = this.getAttribute("id");
+				$.ajax({
+					url:"process.php",
+					type:"get",
+					data:"data="+id,
+					async:true,
+					success:function(kq){
+						$("#ketqua").html(kq);
+					}
+				})
+			})
+		})
+	</script>
+</body>
+</html>

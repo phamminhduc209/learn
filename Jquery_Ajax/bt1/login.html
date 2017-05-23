@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login Jquery-Ajax</title>	
+	<script language="javascript" src="../../jquery-3.1.0.min.js"></script>
+</head>
+<body>
+	<div id="ketqua"></div>
+	<div id="formid">
+		<table>
+			<tr>
+				<td>Username</td>
+				<td><input type="text" name="txtuser"></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="txtpass"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="submit" name="btnSubmit">Submit</button></td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		$(document).ready(function() {
+			// Click button name = ok
+			$("button[name='btnSubmit']").click(function() {
+				// Get value of input Username && Password
+				u = $("input[name='txtuser']").val();
+				p = $("input[name='txtpass']").val();
+				// Ajax
+				$.ajax({
+					url: "login.php",
+					type: "post",
+					data: "user="+u+"&pass="+p,
+					async: true,
+					success: function(kq) {
+						if (kq ==1 ) {
+							$("#ketqua").html("Wrong Username or Password");
+							$("input[name='txtuser']").val('');
+							$("input[name='txtpass']").val('');
+						} else {
+							$("#ketqua").html(kq);
+							$("#formid").hide();
+						}
+					}
+				})
+				// Cancel data sent to 
+				return false;
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="exampleApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Chuyên Đề Angularjs - Controller &amp; Scope</title>
+	<script type="text/javascript" src="../angular/angular.js"></script>
+</head>
+<body>
+	
+	<div ng-controller="ViduCtrl">
+		{{ a }}
+	</div>
+
+	<script type="text/javascript">
+		// Muốn định nghĩa 1 Controller thì phải định nghĩa 1 module
+		var exampleApp = angular.module('exampleApp', []);
+		exampleApp.controller('ViduCtrl', function($scope) {
+			$scope.a = 'Hello Word';
+		});
+	</script>
+</body>
+</html>
