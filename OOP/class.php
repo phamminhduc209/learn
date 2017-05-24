@@ -53,8 +53,10 @@
 	$db->query($sql);
 	$row=$db->num_rows();
 	echo $row;
-	$data = $db ->fectch();
-	echo "<pre>";
-	print_r($data);
-	echo "</pre>";
+	while ($data=$db->fectch()) {
+		echo "<pre>";
+		print_r($data);
+		echo "</pre>";
+		echo $data['username'];
+	}
 ?>
