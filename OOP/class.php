@@ -47,16 +47,16 @@
 		}
 	}
 
-	$db = new database;
-	$db->connect();
-	$sql="select * from user order by id desc";
-	$db->query($sql);
-	$row=$db->num_rows();
-	echo $row;
-	while ($data=$db->fectch()) {
-		echo "<pre>";
-		print_r($data);
-		echo "</pre>";
-		echo $data['username'];
-	}
+	// $db = new database;
+	// $db->connect();
+	// $sql="select * from user order by id desc";
+	// $db->query($sql);
+	// $row=$db->num_rows();
+	// echo $row;
+	// while ($data=$db->fectch()) {
+	// 	echo "<pre>";
+	// 	print_r($data);
+	// 	echo "</pre>";
+	// 	echo $data['username'];
+	// }
 ?>
