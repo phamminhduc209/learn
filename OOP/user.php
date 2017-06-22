@@ -1,51 +1,31 @@
 <?php
-
-	$error = "";
-	if (isset($_POST['ok'])) {
-		$u = $p = "";
-		if($_POST['txtuser'] == NULL) {
-			$error = "Please enter your username";
-		}else{
-			$u = $_POST['txtuser'];
+	class user extends database {
+		public $_username;
+		public $_password;
+		public function __construct() {
+			$this->connect();
 		}
-		if($_POST['txtpass'] ==  NULL) {
-			$error = "Please Enter Your Password";
-		}else{
-			$p = $_POST['txtpass'];
+		public function set_username($user) {
+			$this->_username=$user;
 		}
-		if($u && $p) {
-			// Do Something
+		public function get_username() {
+			return $this->_username;
 		}
-	}
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Form Login</title>
-	<!-- <link rel="stylesheet" href=""> -->
-</head>
-<body>
-
-	<?php
-
-		if($error!="") {
-			echo "<ul>";
-			foreach($error as $err) {
-				echo "<li>$err</li>";
+		public function set_password($pass) {
+			$this->_password=$pass;
+		}
+		public function get_password() {
+			return $this->_password;
+		}
+		public function check_login() {
+			$sql = "select * form user where username='".$this->get_username()."' and password='".$this->get_password()."'";
+			$this->query($sql);
+			if ($this->num_rows() == 0) {
+				return FALSE;
+			}else{
+				return TRUE;
 			}
-			echo "</ul>";
 		}
 
-	?>
-	
-	<form action="login.php" method="post">
-		Username: <input type="text" name="txtuser" size="25">
-		Password: <input type="text" name="txtpass" size="25">
-		<input type="submit" name="ok" value="Submit">
-	</form>
-
-</body>
-</html>
+	}
+?>
