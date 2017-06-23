@@ -18,8 +18,10 @@
 			return $this->_password;
 		}
 		public function check_login() {
-			$sql = "select * form user where username='".$this->get_username()."' and password='".$this->get_password()."'";
+			$sql = "select * from user where username='".$this->get_username()."' and password='".$this->get_password()."'";
 			$this->query($sql);
+			// var_dump($this->num_rows());
+			// die();
 			if ($this->num_rows() == 0) {
 				return FALSE;
 			}else{

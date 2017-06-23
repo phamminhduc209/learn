@@ -18,6 +18,8 @@
 			$muser = new User;
 			$muser->set_username($u);
 			$muser->set_password($p);
+			// var_dump($muser->check_login());
+			// die();
 			if ($muser->check_login() == FALSE) {
 				$error[]="Wrong username or password";
 			}else{
