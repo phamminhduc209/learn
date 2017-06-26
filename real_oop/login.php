@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	require "class.php";
 	require "user.php";
 	$error = "";
@@ -20,10 +21,18 @@
 			$muser->set_password($p);
 			// var_dump($muser->check_login());
 			// die();
-			if ($muser->check_login() == FALSE) {
+			$data=$muser->check_login();
+			if ($data == FALSE) {
 				$error[]="Wrong username or password";
 			}else{
-				echo "Login OK.";
+				// echo "Login OK.";
+				$_SESSION['ses_username']=$data['username'];
+				$_SESSION['ses_level']=$data['level'];
+				header("location:index.php");
+				exit();
+				// echo "<pre>";
+				// print_r($data);
+				// echo "</pre>";
 			}
 		}
 	}

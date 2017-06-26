@@ -25,7 +25,8 @@
 			if ($this->num_rows() == 0) {
 				return FALSE;
 			}else{
-				return TRUE;
+				// return TRUE;
+				return $this->fetch();
 			}
 		}
 

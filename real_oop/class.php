@@ -37,13 +37,26 @@
 		}
 
 		// Ham lay ket qua tron csdl
-		public function fectch() {
+		public function fetch() {
 			if ($this->result) {
 				$data=mysql_fetch_assoc($this->result);
 			}else{
 				$data=0;
 			}
 			return $data;
+		}
+
+		public function listall() {
+			$sql = "select * from user order by it desc";
+			$this -> query($sql);
+			if ($this -> num_rows() == 0) {
+				$data = 0;
+			}else{
+				while ($row = $this -> fetch()) {
+					$data[] = $row;
+				}
+				return $data;
+			}
 		}
 	}
 
