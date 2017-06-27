@@ -47,7 +47,7 @@
 		}
 
 		public function listall() {
-			$sql = "select * from user order by it desc";
+			$sql = "select * from user order by id desc";
 			$this -> query($sql);
 			if ($this -> num_rows() == 0) {
 				$data = 0;
